@@ -8,13 +8,13 @@ const App = () => {
   const [editingData, setEditingData] = useState<TrainingData | null>(null);
 
   const handleAdd = (newData: TrainingData) => {
-    // Проверяем наличие даты
+    // Проверяем наличие даты в списке тренировок
     const existingIndex = data.findIndex(
       (item) => item.date === newData.date
     );
 
     if (existingIndex !== -1) {
-      // Обновляем существующую запись
+      // Обновляем существующую запись: добавляем к дистанции новую дистанцию
       const updatedData = [...data];
       updatedData[existingIndex].distance += newData.distance;
       setData(updatedData);
